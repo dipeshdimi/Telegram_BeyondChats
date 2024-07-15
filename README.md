@@ -1,8 +1,27 @@
-# React + Vite
+# Telegram Clone [Beyond Chats] - [Live Deployment](https://telegram-beyond-chats-d44tksh4e-dipeshdimis-projects.vercel.app/)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![image](https://github.com/user-attachments/assets/c3293a7b-029e-485d-8aff-2ed9d5e3b370)
 
-Currently, two official plugins are available:
+This project is a React-based web application that simulates a responsive messaging interface similar to Telegram.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Live Demo
+
+Check out the live demo of the app [here](https://telegram-beyond-chats-d44tksh4e-dipeshdimis-projects.vercel.app/).
+
+## Getting Started
+
+To run this project locally, follow these steps:
+
+1. Clone this repository:
+   ```bash
+   git clone <repo-url>
+   ```
+2. Install dependencies:
+   ```bash
+   cd telegram-like-app
+   npm install
+   ```
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
