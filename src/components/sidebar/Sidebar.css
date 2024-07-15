@@ -1,0 +1,88 @@
+.sidebar {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+
+  .options {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3%;
+
+    .search {
+    }
+  }
+
+  .contacts-container {
+    width: 100%;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    gap: 1%;
+    flex-grow: 1;
+
+    .contact-card {
+      height: 10%;
+      display: flex;
+
+      &:hover {
+        background-color: rgb(44, 44, 44);
+      }
+
+      .profile-picture {
+        object-fit: contain;
+        border-radius: 50%;
+        margin: 2%;
+      }
+
+      .contact-card-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        flex-grow: 1;
+        padding: 3% 1.5%;
+
+        .contact-card-info,
+        .last-message-info {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        .contact-card-info {
+            .contact-name {
+                font-weight: 600;
+            }
+            .time {
+                font-size: 0.75rem;
+                color: rgb(99, 99, 99);
+            }
+        }
+
+        .last-message-info {
+            .last-message {
+                color: rgb(170,170,170);
+                font-size: 1rem;
+            }
+
+            .unread {
+              font-size: 1rem;
+              height: 1rem;
+              width: 1rem;
+              text-align: center;
+              border-radius: 50%;
+              background-color: rgb(135,116,225);
+            }
+        }
+      }
+    }
+  }
+}
+
+
+@media (max-width: 1024px) {
+  .sidebar {
+    display: none;
+  }
+}

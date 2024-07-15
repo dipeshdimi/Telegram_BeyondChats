@@ -1,0 +1,58 @@
+.chat-window-top {
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(33, 33, 33);
+    padding: 0 3%;
+    
+    .left-content {
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
+
+    .desktop-disappear {
+        display: none;
+    }
+
+    .active-contact-info {
+      display: flex;
+      align-items: center;
+      height: 80%;
+      gap: 8%;
+
+      .active-contact-picture {
+        border-radius: 50%;
+        margin: 2%;
+        height: 100%;
+      }
+
+      .active-contact-text {
+        text-wrap: nowrap;
+      }
+    }
+
+    .actions {
+      display: flex;
+      align-items: center;
+      gap: 10%;
+    }
+  }
+
+
+@media (max-width: 1024px) {
+    .desktop-disappear {
+        display: inline !important;
+        background-color: transparent;
+        border: none;
+    }
+}
+@media (max-width: 480px) {
+    .active-contact-info {
+        gap: 2% !important;
+    }
+    .mobile-disappear {
+        display: none;
+    }
+}

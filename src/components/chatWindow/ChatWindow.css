@@ -1,0 +1,15 @@
+.chat-window {
+  min-width: 30%;
+  flex-grow: 1;
+  background-image: url("/static/background.png");
+  background-size: contain;
+  background-position: center;
+  height: 100%;
+  
+  .chat-window-content {
+    background-color: #0A0A0A8C;
+    display: flex;
+    flex-direction: column;
+    height: inherit
+  }
+}
