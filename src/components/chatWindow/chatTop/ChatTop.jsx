@@ -2,14 +2,15 @@ import './ChatTop.css';
 import { MdOutlineCall } from "react-icons/md";
 import { IoIosSearch, IoMdArrowRoundBack } from "react-icons/io";
 import { SlOptionsVertical } from "react-icons/sl";
+import PropTypes from 'prop-types';
 
-export default function ChatTop({ chatVisibility, setChatVisibility }) {
+const ChatTop = ({ onBackClick }) => {
   return (
     <div className='chat-window-top'>
       <div className='left-content'>
         <button 
           className='desktop-disappear' 
-          onClick={() => setChatVisibility(!chatVisibility)} // Use arrow function to toggle visibility
+          onClick={onBackClick}
         >
           <IoMdArrowRoundBack color='gray' size={32} />
         </button>
@@ -28,4 +29,12 @@ export default function ChatTop({ chatVisibility, setChatVisibility }) {
       </div>
     </div>
   );
-}
+};
+
+ChatTop.propTypes = {
+  chatVisibility: PropTypes.bool.isRequired,
+  setChatVisibility: PropTypes.func.isRequired,
+  onBackClick: PropTypes.func.isRequired,
+};
+
+export default ChatTop;

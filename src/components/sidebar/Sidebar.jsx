@@ -5,8 +5,9 @@ import { IoIosSearch } from "react-icons/io";
 import Paper from '@mui/material/Paper';
 import InputBase from '@mui/material/InputBase';
 import IconButton from '@mui/material/IconButton';
+import PropTypes from 'prop-types';
 
-const Sidebar = ({ onChatSelect, chatMessages, chatVisibility, setChatVisibility }) => {
+const Sidebar = ({ onChatSelect, chatMessages }) => {
   const [chats, setChats] = useState([]);
 
   useEffect(() => {
@@ -39,14 +40,14 @@ const Sidebar = ({ onChatSelect, chatMessages, chatVisibility, setChatVisibility
     <div className='sidebar'>
       <Paper
         component="form"
-        sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: 400, backgroundColor: 'rgb(33, 33, 33)' }}
+        sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', backgroundColor: 'rgb(33, 33, 33)' }}
       >
         <IconButton sx={{ p: '10px' }} aria-label="menu">
           <GiHamburgerMenu color='gray' />
         </IconButton>
         <InputBase
           sx={{ ml: 1, flex: 1, color: 'gray', background: 'rgb(55,55, 55);', borderRadius: '15px', padding: '0 5%' }}
-          placeholder="Search Google Maps"
+          placeholder="Search Telegram"
           inputProps={{ 'aria-label': 'search google maps' }}
         />
         <IconButton type="button" sx={{ p: '10px' }} aria-label="search">
@@ -76,6 +77,11 @@ const Sidebar = ({ onChatSelect, chatMessages, chatVisibility, setChatVisibility
       </div>
     </div>
   );
+};
+
+Sidebar.propTypes = {
+  onChatSelect: PropTypes.func.isRequired,
+  chatMessages: PropTypes.object.isRequired,
 };
 
 export default Sidebar;

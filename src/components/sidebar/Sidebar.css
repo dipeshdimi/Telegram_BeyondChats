@@ -9,9 +9,6 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 3%;
-
-    .search {
-    }
   }
 
   .contacts-container {
@@ -81,8 +78,14 @@
 }
 
 
-@media (max-width: 1024px) {
+@media (max-width: 850px) {
   .sidebar {
-    display: none;
+    flex-grow: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .sidebar {
+    width: 100%;
   }
 }

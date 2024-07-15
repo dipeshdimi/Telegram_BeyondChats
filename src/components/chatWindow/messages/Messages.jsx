@@ -1,8 +1,14 @@
+import { useState, useEffect, useRef } from 'react';
+import PropTypes from 'prop-types';
 import './Messages.css';
-import { useState, useEffect } from 'react';
 
-export default function Messages({ chatId, messages }) {
+const Messages = ({ chatId, messages }) => {
   const [apiMessages, setApiMessages] = useState([]);
+  const messagesEndRef = useRef(null);
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [apiMessages, messages]);
 
   useEffect(() => {
     if (chatId) {
@@ -20,14 +26,37 @@ export default function Messages({ chatId, messages }) {
     }
   }, [chatId]);
 
+  const scrollToBottom = () => {
+    if (messagesEndRef.current) {
+      messagesEndRef.current.scrollTo({
+        top: messagesEndRef.current.scrollHeight,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
-    <div className='messages'>
+    <div ref={messagesEndRef} className='messages'>
       {[...apiMessages, ...messages].map((message) => (
         <div key={message.id} className={`message ${message.sender_id === 1 ? 'own' : ''}`}>
-          <p className='message-text'>{message.message} </p>
+          <p className='message-text'>{message.message}</p>
           <span className="message-timestamp">{new Date(message.created_at).toLocaleTimeString()}</span>
         </div>
       ))}
     </div>
   );
-}
+};
+
+Messages.propTypes = {
+  chatId: PropTypes.number,
+  messages: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      message: PropTypes.string.isRequired,
+      sender_id: PropTypes.number.isRequired,
+      created_at: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+};
+
+export default Messages;

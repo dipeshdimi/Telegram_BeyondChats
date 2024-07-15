@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Sidebar from './components/sidebar/Sidebar';
 import ChatWindow from './components/chatWindow/ChatWindow';
 import './App.css';
@@ -7,6 +7,16 @@ const App = () => {
   const [selectedChatId, setSelectedChatId] = useState(null);
   const [chatMessages, setChatMessages] = useState({});
   const [chatVisibility, setChatVisibility] = useState(true);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 850);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 850);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const handleChatSelect = (chatId) => {
     setSelectedChatId(chatId);
@@ -28,22 +38,30 @@ const App = () => {
     }));
   };
 
+  const handleBackClick = () => {
+    setSelectedChatId(null);
+    setChatVisibility(false);
+  };
+
   return (
     <div className='telegram'>
-      <Sidebar 
-        onChatSelect={handleChatSelect} 
-        chatMessages={chatMessages}
-        chatVisibility={chatVisibility}
-        setChatVisibility={setChatVisibility} 
-      />
-      <ChatWindow
-        chatId={selectedChatId}
-        messages={chatMessages[selectedChatId] || []}
-        onSendMessage={(message) => handleSendMessage(selectedChatId, message)}
-        chatVisibility={chatVisibility}
-        setChatVisibility={setChatVisibility}
-        style={{ display: chatVisibility ? 'block' : 'none' }}
-      />
+      {(!selectedChatId || !isMobile || !(isMobile && chatVisibility)) && (
+        <Sidebar 
+          onChatSelect={handleChatSelect} 
+          chatMessages={chatMessages}
+        />
+      )}
+      {selectedChatId ? (
+        <ChatWindow 
+          chatId={selectedChatId} 
+          messages={chatMessages[selectedChatId] || []} 
+          onSendMessage={(message) => handleSendMessage(selectedChatId, message)}
+          chatVisibility={chatVisibility}
+          onBackClick={handleBackClick}
+        />
+      ) :
+      <div className='chat-window bg'></div>
+      }
     </div>
   );
 };
