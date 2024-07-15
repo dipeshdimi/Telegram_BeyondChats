@@ -1,4 +1,4 @@
-# Telegram Clone [Beyond Chats] - [Live Deployment](https://telegram-beyond-chats-d44tksh4e-dipeshdimis-projects.vercel.app/)
+# Responsive Telegram Clone [Beyond Chats] - [Live Deployment](https://telegram-beyond-chats-d44tksh4e-dipeshdimis-projects.vercel.app/)
 
 ![image](https://github.com/user-attachments/assets/c3293a7b-029e-485d-8aff-2ed9d5e3b370)
 
@@ -14,7 +14,7 @@ To run this project locally, follow these steps:
 
 1. Clone this repository:
    ```bash
-   git clone <repo-url>
+   git clone https://github.com/dipeshdimi/Telegram_BeyondChats.git
    ```
 2. Install dependencies:
    ```bash
