@@ -18,7 +18,7 @@ To run this project locally, follow these steps:
    ```
 2. Install dependencies:
    ```bash
-   cd telegram-like-app
+   cd Telegram_BeyondChats
    npm install
    ```
 3. Start the development server:
